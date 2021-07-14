@@ -1,59 +1,59 @@
 swagger: "2.0"
 info:
-  description: "API de conversão de temperatura"
+  description: "Temperature conversion API"
   version: "1.0.0"
-  title: "Conversão de temperatura"
+  title: "Temperature conversion"
   contact:
     email: "fabricio@veronez.dev"
 paths:
-  /fahrenheit/{valor}/celsius:
+  /fahrenheit/{value}/celsius:
     get:
-      description: "Converte de Fahrenheit para Celsius"
+      description: "Convert from Fahrenheit to Celsius"
       produces:
       - "application/json"
       parameters:
-      - name: "valor"
+      - name: "value"
         in: "path"
-        description: "Valor que será convertido"
+        description: "Value that will be converted"
         required: true
         type: "number"
       responses:
         "200":
-          description: "Resultado da conversão"
+          description: "Conversion result"
           schema:
             type: "array"
             items:
-              $ref: "#/definitions/Temperatura"
+              $ref: "#/definitions/Temperature"
         "400":
           description: "Bad Input Parameter"
 
-  /celsius/{valor}/fahrenheit:
+  /celsius/{value}/fahrenheit:
     get:
-      description: "Converte de Celsius para Fahrenheit"
+      description: "Convert from Celsius to Fahrenheit"
       produces:
       - "application/json"
       parameters:
-      - name: "valor"
+      - name: "value"
         in: "path"
-        description: "Valor que será convertido"
+        description: "Value that will be converted"
         required: true
         type: "number"
       responses:
         "200":
-          description: "Resultado da conversão"
+          description: "Conversion result"
           schema:
             type: "array"
             items:
-              $ref: "#/definitions/Temperatura"
+              $ref: "#/definitions/Temperature"
         "400":
           description: "Bad Input Parameter"
 
 definitions:
-  Temperatura:
+  Temperature:
     type: "object"
     required:
-    - "valor"
+    - "value"
     properties:
-      valor:
+      value:
         type: "number"
         example: 500.0

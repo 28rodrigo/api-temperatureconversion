@@ -11,31 +11,31 @@ app.use(config.middlewares.healthMid);
 app.use('/', config.routers);
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument)); 
 
-app.get('/fahrenheit/:valor/celsius', (req, res) => {
+app.get('/fahrenheit/:value/celsius', (req, res) => {
 
-    let valor = req.params.valor;
-    let celsius = (valor - 32) * 5 / 9;
-    res.json({ "celsius": celsius, "maquina": os.hostname() });
+    let value = req.params.value;
+    let celsius = (value - 32) * 5 / 9;
+    res.json({ "celsius": celsius, "machine": os.hostname() });
 });
 
-app.get('/celsius/:valor/fahrenheit', (req, res) => {
+app.get('/celsius/:value/fahrenheit', (req, res) => {
 
-    let valor = req.params.valor;
-    let fahrenheit = (valor * 9 / 5) + 32;
-    res.json({ "fahrenheit": fahrenheit, "maquina": os.hostname() });
+    let value = req.params.value;
+    let fahrenheit = (value * 9 / 5) + 32;
+    res.json({ "fahrenheit": fahrenheit, "machine": os.hostname() });
 });
 
-app.get('/temperatura/fahrenheitparacelsius/:valor', (req, res) => {
+app.get('/temperatura/fahrenheittocelsius/:value', (req, res) => {
 
-    let valor = req.params.valor;
-    let celsius = (valor - 32) * 5 / 9;
+    let value = req.params.value;
+    let celsius = (value - 32) * 5 / 9;
     res.json({ "celsius": celsius });
 });
 
-app.get('/temperatura/celsiusparafahrenheit/:valor', (req, res) => {
+app.get('/temperatura/celsiustofahrenheit/:value', (req, res) => {
 
-    let valor = req.params.valor;
-    let fahrenheit = (valor * 9 / 5) + 32;
+    let value = req.params.value;
+    let fahrenheit = (value * 9 / 5) + 32;
     res.json({ "fahrenheit": fahrenheit });
 });
 
