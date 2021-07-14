@@ -41,5 +41,5 @@ app.get('/temperatura/celsiusparafahrenheit/:valor', (req, res) => {
 
 
 app.listen(3000, () => {
-    console.log("Servidoa porta 8080");
+    console.log("Server working on port 3000");
 });
